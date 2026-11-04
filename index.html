@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="하루에 하나씩 그린 흑백 로고 34개를 던지고, 흩뜨리고, 찍어보는 놀이터.">
+<meta name="description" content="하루에 하나씩 그린 흑백 로고 31개를 던지고, 흩뜨리고, 찍어보는 놀이터.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Logos for hyokiworld">
-<meta property="og:description" content="하루에 하나씩 그린 흑백 로고 34개를 던지고, 흩뜨리고, 찍어보는 놀이터.">
+<meta property="og:description" content="하루에 하나씩 그린 흑백 로고 31개를 던지고, 흩뜨리고, 찍어보는 놀이터.">
 <meta property="og:url" content="https://hyoki.world/">
 <meta property="og:image" content="https://hyoki.world/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -51,6 +51,8 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-acti
 #drop canvas.grab{cursor:grab}
 #drop canvas.grabbing{cursor:grabbing}
 .hint{position:absolute;top:14px;left:0;right:0;text-align:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--mute);pointer-events:none;line-height:1.7;text-wrap:balance}
+.hint i{font-style:normal}
+@media (max-width:640px){.hint span{display:block}.hint i{display:none}}
 .tools{position:absolute;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;pointer-events:none}
 .tools>*{pointer-events:auto}
 .btn{font-size:13px;font-weight:600;padding:9px 14px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);transition:background .15s,color .15s,transform .1s;user-select:none}
@@ -106,14 +108,14 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-acti
 </style>
 <div id="app">
   <header class="rail">
-    <span class="brand"><img src="brand.png" alt="CHANI. Handle With Care™" width="600" height="145"><span class="meta">hyoki.world / 34 marks</span></span>
+    <span class="brand"><img src="brand.png" alt="CHANI. Handle With Care™" width="600" height="145"><span class="meta">hyoki.world / 31 marks</span></span>
     <button id="invert" type="button" aria-label="흑백 반전"><i></i>반전</button>
   </header>
 
   <main class="stage">
     <section class="view" id="ink" aria-label="잉크">
       <canvas id="inkCanvas" aria-label="잉크 입자로 그려진 로고. 문지르면 흩어지고 탭하면 다음 로고로 바뀝니다"></canvas>
-      <p class="hint">문지르면 흩어지고 · 놓으면 다시 모여요 · 탭하면 다음 로고 · 길게 누르면 펑</p>
+      <p class="hint"><span>문지르면 흩어지고</span><i aria-hidden="true"> · </i><span>놓으면 다시 모여요</span><i aria-hidden="true"> · </i><span>탭하면 다음 로고</span><i aria-hidden="true"> · </i><span>길게 누르면 펑</span></p>
       <div class="ink-ui">
         <div class="ink-no" id="inkNo" aria-live="polite"></div>
         <div class="ink-ctl">
@@ -126,7 +128,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-acti
 
     <section class="view" id="drop" aria-label="던지기" hidden>
       <canvas id="dropCanvas" aria-label="로고를 끌어서 던질 수 있는 공간"></canvas>
-      <p class="hint">끌어서 던지기 · 빈 곳 탭하면 하나 더 · 빈 곳을 쓸면 바람 · 두 번 탭하면 크게</p>
+      <p class="hint"><span>끌어서 던지기</span><i aria-hidden="true"> · </i><span>빈 곳 탭하면 하나 더</span><i aria-hidden="true"> · </i><span>빈 곳을 쓸면 바람</span><i aria-hidden="true"> · </i><span>두 번 탭하면 크게</span></p>
       <div class="tools">
         <button class="btn" id="shake" type="button">흔들기</button>
         <button class="btn" id="zerog" type="button" aria-pressed="false">무중력</button>
@@ -137,7 +139,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-acti
 
     <section class="view" id="stamp" aria-label="도장" hidden>
       <canvas id="paperCanvas" aria-label="로고 도장을 찍는 종이"></canvas>
-      <p class="hint">탭하면 쾅, 드래그하면 줄줄이 찍혀요</p>
+      <p class="hint"><span>탭하면 쾅</span><i aria-hidden="true"> · </i><span>드래그하면 줄줄이 찍혀요</span></p>
       <div class="tray">
         <div class="strip" id="strip" role="group" aria-label="도장 고르기"></div>
         <div class="row">
@@ -151,7 +153,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-acti
 
     <section class="view" id="index" aria-label="모아보기" hidden>
       <div class="index-head">
-        <h1>No.01 — No.34</h1>
+        <h1>No.01 — No.31</h1>
         <p>하루에 하나씩 그린 로고들. 칸을 누르면 크게 볼 수 있어요.</p>
       </div>
       <div class="grid" id="grid"></div>
@@ -178,7 +180,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-acti
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <script>
-const META=[["logos/01.png",720,231],["logos/02.png",720,258],["logos/03.png",720,106],["logos/04.png",720,523],["logos/05.png",383,615],["logos/06.png",720,369],["logos/07.png",720,341],["logos/08.png",720,157],["logos/09.png",720,622],["logos/10.png",720,589],["logos/11.png",720,356],["logos/12.png",720,685],["logos/13.png",720,340],["logos/14.png",720,346],["logos/15.png",720,469],["logos/16.png",720,92],["logos/17.png",300,378],["logos/18.png",386,499],["logos/19.png",543,543],["logos/20.png",720,720],["logos/21.png",720,176],["logos/22.png",720,581],["logos/23.png",720,336],["logos/24.png",720,603],["logos/25.png",679,720],["logos/26.png",679,720],["logos/27.png",720,380],["logos/28.png",720,409],["logos/29.png",720,334],["logos/30.png",720,720],["logos/31.png",720,266],["logos/32.png",720,720],["logos/33.png",720,517],["logos/34.png",720,608]];
+const META=[["logos/01.png",720,231],["logos/02.png",720,106],["logos/03.png",720,523],["logos/04.png",383,615],["logos/05.png",720,369],["logos/06.png",720,157],["logos/07.png",720,622],["logos/08.png",720,589],["logos/09.png",720,356],["logos/10.png",720,685],["logos/11.png",720,340],["logos/12.png",720,346],["logos/13.png",720,469],["logos/14.png",720,92],["logos/15.png",300,378],["logos/16.png",386,499],["logos/17.png",543,543],["logos/18.png",720,720],["logos/19.png",720,176],["logos/20.png",720,581],["logos/21.png",720,603],["logos/22.png",679,720],["logos/23.png",679,720],["logos/24.png",720,380],["logos/25.png",720,409],["logos/26.png",720,334],["logos/27.png",720,720],["logos/28.png",720,266],["logos/29.png",720,720],["logos/30.png",720,517],["logos/31.png",720,608]];
 const N=META.length;
 const $=s=>document.querySelector(s);
 const root=document.documentElement;
@@ -234,7 +236,7 @@ addEventListener('hashchange',()=>show(location.hash.slice(1)));
 
 /* ---------- INK: the logo drawn as thousands of ink dots ---------- */
 const ic=$('#inkCanvas'),ix=ic.getContext('2d');
-let IW=0,IH=0,inkI=Math.floor(Math.random()*34),inkRun=false,autoOn=!reduce,lastAct=performance.now(),lastAuto=0;
+let IW=0,IH=0,inkI=Math.floor(Math.random()*N),inkRun=false,autoOn=!reduce,lastAct=performance.now(),lastAuto=0;
 const CNT=Math.round(Math.min(5200,Math.max(2200,innerWidth*innerHeight/260)));
 const ppx=new Float32Array(CNT),ppy=new Float32Array(CNT),pvx=new Float32Array(CNT),pvy=new Float32Array(CNT),
       ptx=new Float32Array(CNT),pty=new Float32Array(CNT),pk=new Float32Array(CNT);
@@ -338,7 +340,7 @@ const engine=Engine.create({enableSleeping:false});
 engine.gravity.y=1;
 const dc=$('#dropCanvas'),dx=dc.getContext('2d');
 let W=0,H=0,DPR=1,walls=[],ceiling=null,items=[],nextI=0,zeroG=false,running=false,last=0;
-const ROUND=new Set([18,19]); // circular marks (No.19, No.20)
+const ROUND=new Set([16,17]); // circular marks
 
 function targetSize(i){
   const [ ,w,h]=META[i];
